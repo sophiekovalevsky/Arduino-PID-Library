@@ -23,11 +23,11 @@ class PID {
 		int controllerDirection;
 
 		/* 
-		* Pointers to the Input, Output, and Setpoint variables.
-		* This creates a hard link between the variables and 
-		* the PID, freeing the user from having o constantly 
-		* tell us what there values are. With the pointers 
-		* we'll just know.
+		Pointers to the Input, Output, and Setpoint variables.
+		This creates a hard link between the variables and 
+		the PID, freeing the user from having o constantly 
+		tell us what there values are. With the pointers 
+		we'll just know.
 		*/
 	    double *myInput;              
 	    double *myOutput;            
@@ -69,9 +69,8 @@ class PID {
 											  
 		void SetOutputLimits(double, double); 
 
-
-
 		// Not commonly functions 
+
 		/* 
 		While most users will set the tunings once in the constructor, this function gives the user the option of changing tunings during runtime for Adaptive control 
 		*/

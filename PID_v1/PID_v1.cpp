@@ -21,9 +21,9 @@ PID::PID(double* Input, double* Output, double* Setpoint,
         double Kp, double Ki, double Kd, int ControllerDirection)
 {
 	
-    myOutput = Output;
-    myInput = Input;
-    mySetpoint = Setpoint;
+  myOutput = Output;
+  myInput = Input;
+  mySetpoint = Setpoint;
 	inAuto = false;
 	
 	PID::SetOutputLimits(0, 255);				//default output limit corresponds to 
@@ -104,10 +104,8 @@ void PID::SetTunings(double Kp, double Ki, double Kd)
  ******************************************************************************/
 void PID::SetSampleTime(int NewSampleTime)
 {
-   if (NewSampleTime > 0)
-   {
-      double ratio  = (double)NewSampleTime
-                      / (double)SampleTime;
+   if (NewSampleTime > 0) {
+      double ratio  = (double)NewSampleTime/(double)SampleTime;
       ki *= ratio;
       kd /= ratio;
       SampleTime = (unsigned long)NewSampleTime;
@@ -143,12 +141,11 @@ void PID::SetOutputLimits(double Min, double Max)
  * when the transition from manual to auto occurs, the controller is
  * automatically initialized
  ******************************************************************************/ 
-void PID::SetMode(int Mode)
-{
+void PID::SetMode(int Mode) {
     bool newAuto = (Mode == AUTOMATIC);
-    if(newAuto == !inAuto)
-    {  /*we just went from manual to auto*/
-        PID::Initialize();
+    if(newAuto == !inAuto) {  
+    /*we just went from manual to auto*/
+      PID::Initialize();
     }
     inAuto = newAuto;
 }
@@ -157,12 +154,11 @@ void PID::SetMode(int Mode)
  *	does all the things that need to happen to ensure a bumpless transfer
  *  from manual to automatic mode.
  ******************************************************************************/ 
-void PID::Initialize()
-{
-   ITerm = *myOutput;
-   lastInput = *myInput;
-   if(ITerm > outMax) ITerm = outMax;
-   else if(ITerm < outMin) ITerm = outMin;
+void PID::Initialize() {
+  ITerm = *myOutput;
+  lastInput = *myInput;
+  if(ITerm > outMax) ITerm = outMax;
+  else if(ITerm < outMin) ITerm = outMin;
 }
 
 /* SetControllerDirection(...)*************************************************
@@ -171,15 +167,13 @@ void PID::Initialize()
  * know which one, because otherwise we may increase the output when we should
  * be decreasing.  This is called from the constructor.
  ******************************************************************************/
-void PID::SetControllerDirection(int Direction)
-{
-   if(inAuto && Direction !=controllerDirection)
-   {
-	  kp = (0 - kp);
-      ki = (0 - ki);
-      kd = (0 - kd);
-   }   
-   controllerDirection = Direction;
+void PID::SetControllerDirection(int Direction) {
+  if(inAuto && Direction !=controllerDirection) {
+    kp = (0 - kp);
+    ki = (0 - ki);
+    kd = (0 - kd);
+  }   
+  controllerDirection = Direction;
 }
 
 /* Status Funcions*************************************************************
@@ -187,9 +181,19 @@ void PID::SetControllerDirection(int Direction)
  * functions query the internal state of the PID.  they're here for display 
  * purposes.  this are the functions the PID Front-end uses for example
  ******************************************************************************/
-double PID::GetKp(){ return  dispKp; }
-double PID::GetKi(){ return  dispKi;}
-double PID::GetKd(){ return  dispKd;}
-int PID::GetMode(){ return  inAuto ? AUTOMATIC : MANUAL;}
-int PID::GetDirection(){ return controllerDirection;}
+double PID::GetKp() { 
+  return dispKp; 
+}
+double PID::GetKi() { 
+  return dispKi;
+}
+double PID::GetKd(){ 
+  return dispKd;
+}
+int PID::GetMode() {
+  return  inAuto ? AUTOMATIC : MANUAL;
+}
+int PID::GetDirection() { 
+  return controllerDirection;
+}
 
