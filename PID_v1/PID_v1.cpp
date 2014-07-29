@@ -14,7 +14,8 @@
 #include <PID_v1.h>
 
 /*Constructor 
- *The parameters specified here are those for for which we can't set up reliable defaults, so we need to have the user set them.
+ *The parameters specified here are those for for which we can't set up reliable 
+ defaults, so we need to have the user set them.
  */
 PID::PID(double* Input, double* Output, double* Setpoint,
         double Kp, double Ki, double Kd, int ControllerDirection)
@@ -166,7 +167,8 @@ void PID::SetControllerDirection(int Direction) {
 
 /* Status Funcions
  * Just because you set the Kp=-1 doesn't mean it actually happened.  these
- * functions query the internal state of the PID.  they're here for display purposes.  this are the functions the PID Front-end uses for example*/
+ * functions query the internal state of the PID.  they're here for display purposes.
+ this are the functions the PID Front-end uses for example*/
 double PID::GetKp() { 
   return dispKp; 
 }
