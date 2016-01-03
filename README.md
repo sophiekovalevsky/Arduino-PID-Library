@@ -1,5 +1,6 @@
-Arduino PID Library - Version 1.1.0
+Arduino PID Library - Version 1.1.2
 =================
+This is a fork of Brett's awesome library to work with PID controllers in Arduino Platform.
 
 ## Author
 This library was created by Brett Beauregard.
