@@ -16,7 +16,7 @@ This library was created by Brett Beauregard.
 	</tr>
 	<tr>
 		<td><code>SetMode()</code></td>
-		<td></td>
+		<td>Allos the controller set to manual or automatic.</td>
 	</tr>
 	<tr>
 		<td><code>Compute()</code></td>
@@ -24,39 +24,31 @@ This library was created by Brett Beauregard.
 	</tr>
 	<tr>
 		<td><code>SetOutputLimits()</code></td>
-		<td></td>
+		<td>Limit the output range of the PID.</td>
 	</tr>
 	<tr>
 		<td><code>SetTunings()</code></td>
-		<td></td>
+		<td>Assign values to Kp, Ki and Kd parameters during normal operation.</td>
 	</tr>
 	<tr>
 		<td><code>SetControllerDirection()</code></td>
-		<td></td>
+		<td>Connect the PID into a DIRECT or REVERSE process.</td>
 	</tr>
 	<tr>
 		<td><code>SetSampleTime()</code></td>
-		<td></td>
+		<td>Assign the sample time in ms at which the calculation is performed.</td>
 	</tr>
 	<tr>
-		<td><code>GetKp()</code></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td><code>GetKi()</code></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td><code>GetKd()</code></td>
-		<td></td>
+		<td><code>GetKp(), GetKi(), GetKd()</code></td>
+		<td>Display the Kp, Ki and Kd parameters.</td>
 	</tr>
 	<tr>
 		<td><code>GetMode()</code></td>
-		<td></td>
+		<td>Returns the PID's mode.</td>
 	</tr>
 	<tr>
 		<td><code>GetDirection()</code></td>
-		<td></td>
+		<td>Returns the PID's direction.</td>
 	</tr>
 </table>
 
