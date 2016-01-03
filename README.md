@@ -13,27 +13,27 @@ This library was created by Brett Beauregard.
 		<th>What it does?</th>
 	</tr>
 	<tr>
-		<td><code>SetMode()</code></td>
-		<td>Allow the controller set to manual or automatic.</td>
+		<td><code>SetMode(int Mode)</code></td>
+		<td>Allow the controller set to MANUAL or AUTOMATIC.</td>
 	</tr>
 	<tr>
 		<td><code>Compute()</code></td>
 		<td>Performs the PID calculation.</td>
 	</tr>
 	<tr>
-		<td><code>SetOutputLimits()</code></td>
+		<td><code>SetOutputLimits(double Min, double Max)</code></td>
 		<td>Limit the output range of the PID.</td>
 	</tr>
 	<tr>
-		<td><code>SetTunings()</code></td>
+		<td><code>SetTunings(double Kp,double Ki,double Kd)</code></td>
 		<td>Assign values to Kp, Ki and Kd parameters during normal operation.</td>
 	</tr>
 	<tr>
-		<td><code>SetControllerDirection()</code></td>
+		<td><code>SetControllerDirection(int Direction)</code></td>
 		<td>Connect the PID into a DIRECT or REVERSE process.</td>
 	</tr>
 	<tr>
-		<td><code>SetSampleTime()</code></td>
+		<td><code>SetSampleTime(int NewSampleTime)</code></td>
 		<td>Assign the sample time in ms at which the calculation is performed.</td>
 	</tr>
 	<tr>
