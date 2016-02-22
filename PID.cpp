@@ -1,8 +1,9 @@
 /*******
- * Arduino PID Library - Version 1.0.1
- * by Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com
- *
+ * Arduino PID Library - Version 1.1.2
+ * by Kiara Navarro from PanamaHitek
+ * This library is based on work from Brett Beauregard.
  * This Library is licensed under a GPLv3 License
+ * 
 *******/
 
 #if ARDUINO >= 100
@@ -26,10 +27,10 @@ PID::PID(double* Input, double* Output, double* Setpoint,
   mySetpoint = Setpoint;
 	inAuto = false;
 
-	// Default range for the arduino PWM  output
+	// Default PWM output range
 	PID::SetOutputLimits(0, 255); 
 
-  // Default Controller Sample Time is 0.1 seconds
+  // Default sample time in ms
   SampleTime = 100; 
 
   PID::SetControllerDirection(ControllerDirection);
@@ -42,7 +43,7 @@ PID::PID(double* Input, double* Output, double* Setpoint,
 /* Compute
  * This, as they say, is where the magic happens.  this function should be called
  every time "void loop()" executes.  the function will decide for itself whether a
- new pid Output needs to be computed.  returns true when the output is computed,
+ new pid Output needs to be computed. Returns true when the output is computed, 
  false when nothing has been done.
 */ 
 
@@ -60,7 +61,7 @@ bool PID::Compute() {
     double dInput = (input - lastInput);
 
     /*Compute PID Output*/
-    double output = kp * error + ITerm- kd * dInput;
+    double output = kp * error + ITerm - kd * dInput;
       
     if(output > outMax) output = outMax;
     else if(output < outMin) output = outMin;

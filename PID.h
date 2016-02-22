@@ -50,21 +50,23 @@ class PID {
 		// Commonly used functions
 
 		/*
-		Constructor  links the PID to the Input, Output and Setpoint. Additional, the initial tuning parameters are set here. 
+		Constructor  links the PID to the Input, Output and Setpoint. 
+		Additional, the initial tuning parameters are set here. 
 		*/
-		PID(double*, double*, double*,        
-		    double, double, double, int);
+		PID(double*, double*, double*, double, double, double, int);
 
 		// Sets the PID to either Manual (0) or Auto (non-0)
 		void SetMode(int Mode);               
 
 		/* 
-		Performs the PID calculation. It should be called every time loop() cycles. ON/OFF and calculation frequency can be set using SetMode and SetSampleTime respectively. 
+		Performs the PID calculation. It should be called every time loop() cycles. 
+		ON/OFF and calculation frequency can be set using SetMode and SetSampleTime respectively. 
 		*/
 		bool Compute();
 
 		/* 
-		Clamps the output to a specific range, generally 0-255 by default, but it's likely the user will want to change this depending on the application 
+		Clamps the output to a specific range, generally 0-255 by default.
+		But it's likely the user will want to change this depending on the application 
 		*/
 											  
 		void SetOutputLimits(double, double); 
@@ -72,17 +74,23 @@ class PID {
 		// Not commonly functions 
 
 		/* 
-		While most users will set the tunings once in the constructor, this function gives the user the option of changing tunings during runtime for Adaptive control 
+		While most users will set the tunings once in the constructor. 
+		This function gives the user the option of changing tunings during runtime for 
+		Adaptive control 
 		*/
 		void SetTunings(double, double, double);
 
 		/* 
 		Sets the Direction, or "Action" of the controller. 
-		DIRECT means the output will increase when error is positive. REVERSE means the opposite. It's very unlikely that this will be needed once it is set in the constructor. */
+		DIRECT means the output will increase when error is positive. 
+		REVERSE means the opposite. 
+		It's very unlikely that this will be needed once it is set in the constructor. 
+		*/
 		void SetControllerDirection(int);	
 
 		/* 
-		Sets the sample time (in ms) with wich the PID calculation is performed. The default value for this is 100 ms 
+		Sets the sample time (in ms) with wich the PID calculation is performed. 
+		The default value for this is 100 ms 
 		*/
 		void SetSampleTime(int);             
 											  
@@ -91,7 +99,8 @@ class PID {
 		//Display functions
 
 		/* 
-		These functions query the pid for interal values. They were created mainly for the pid front-end, where it's important to know what is actually inside the PID.
+		These functions query the pid for interal values. They were created mainly for 
+		the pid front-end, where it's important to know what is actually inside the PID.
 		*/
 		double GetKp();
 		double GetKi();
